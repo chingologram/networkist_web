@@ -13,13 +13,13 @@ export default function MyApp({ Component, pageProps, router }) {
     function nextPrincipio(idx, e) {
         router.push('/principios/' + (parseInt(idx) + 1));
     }
+    let idx = router.pathname.split('/').pop();
+    const handlers = useSwipeable({
+        onSwipedLeft: (eventData) => nextPrincipio(idx),
+        onSwipedRight: (eventData) => prevPrincipio(idx)
+    });
 
     if (router.pathname.startsWith('/principios/')) {
-        let idx = router.pathname.split('/').pop();
-        const handlers = useSwipeable({
-            onSwipedLeft: (eventData) => nextPrincipio(idx),
-            onSwipedRight: (eventData) => prevPrincipio(idx)
-        });
         return (
             <RootLayout>
                 <h1>Principios networkistas</h1>
