@@ -100,7 +100,7 @@ h1, h2 {
 }
 .prev-principio {
     content: ' ';
-    background: url(/principios-prev.svg);
+    background: url(../public/principios-prev.svg);
     position: absolute;
     left: 0px;
     height: 3rem;
@@ -116,7 +116,7 @@ h1, h2 {
 }
 .next-principio {
     content: ' ';
-    background: url(/principios-next.svg);
+    background: url(../public/principios-next.svg);
     position: absolute;
     right: 0px;
     height: 3rem;
