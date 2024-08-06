@@ -6,6 +6,9 @@ const nextConfig = {
     output: 'export',
     defaultLayout: true,
     pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
+    images: {
+        unoptimized: true
+    },
     async redirects() {
         return [
             // Basic redirect
