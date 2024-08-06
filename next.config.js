@@ -3,6 +3,7 @@ const withMDX = require('@next/mdx')()
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     // Configure `pageExtensions` to include MDX files
+    output: 'export',
     defaultLayout: true,
     pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
     async redirects() {
