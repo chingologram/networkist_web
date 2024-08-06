@@ -17,7 +17,7 @@ export function RootLayout({ children }) {
           </Link>
           <nav className="flex flex-row gap-8 w-full justify-end">
             <Link className="hover:underline" href="https://correos.filosofiadelfuturo.org/">Blog</Link>
-            <Link className="hover:underline" href="/principios">Principios del networkismo</Link>
+            <Link className="hover:underline" href="/principios/1">Principios del networkismo</Link>
             <Link className="hover:underline" href="/quienes-somos">¿Quiénes somos?</Link>
           </nav>
         </div>
