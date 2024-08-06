@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 100;
+  --background-end-rgb: 100, 100, 200;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 255, 255, 255;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom right,
+      #222,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+    a {
+        @apply underline;
+    }
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+html {
+    font-size: 16px;
+    overflow: hidden;
+    counter-reset: overlay-count;
+}
+.bg-overlay {
+    counter-increment: overlay-count;
+    opacity: .5;
+    filter: blur(20px);
+    mix-blend-mode: lighten;
+    @apply fixed p-0 top-0 right-0 left-0 bottom-0;
+    border-radius: 100%;
+    transition: all 2s;
+    animation: 15s overlay-animation infinite;
+}
+.bg-overlay {
+    translate: -20% 0;
+    background: radial-gradient(pink 0%, transparent 50%);
+}
+#overlay-2 {
+    translate: 20% 0;
+    background: radial-gradient(turquoise 0%, transparent 50%);
+}
+#overlay-3 {
+    translate: 0 20%;
+    background: radial-gradient(blue 0%, transparent 50%);
+}
+#overlay-4 {
+    translate: 0 20%;
+    background: radial-gradient(violet 0%, transparent 50%);
+}
+#overlay-5 {
+    translate: -30% 0%;
+    background: radial-gradient(darkpink 0%, transparent 50%);
+}
+#overlay-6 {
+    translate: 0% 30%;
+    background: radial-gradient(darkblue 0%, transparent 50%);
+}
+@keyframes overlay-animation {
+    0% {
+        rotate: 0deg;
+        filter: blur(20px);
+    }
+    25% {
+        
+        rotate: -45deg;
+    }
+    75% {
+        
+        rotate: 45deg;
+        filter: blur(50px);
+    }
+    100% {
+        rotate: 0deg;
+    }
+}
+.principios {
+    @apply px-48;
+}
+h1, h2 {
+    @apply text-2xl font-semibold text-center mb-12;
+}
+.prev-principio {
+    content: ' ';
+    background: url(/principios-prev.svg);
+    position: absolute;
+    left: 0px;
+    height: 3rem;
+    width: 3rem;
+    z-index: 10;
+    opacity: 1;
+    width: 176px;
+    height: 245px;
+    top: 50%;
+    transform: scale(.5);
+    filter: drop-shadow(0 0 20px rgba(0,0,0,.5));
+    transition: top 0.5s ease-in-out, filter 0.5s ease-in-out;
+}
+.next-principio {
+    content: ' ';
+    background: url(/principios-next.svg);
+    position: absolute;
+    right: 0px;
+    height: 3rem;
+    width: 3rem;
+    z-index: 10;
+    opacity: 1;
+    width: 176px;
+    height: 245px;
+    top: 50%;
+    transform: scale(.5);
+    filter: drop-shadow(0 0 20px rgba(0,0,0,.5));
+    transition: top 0.5s ease-in-out, filter 0.5s ease-in-out;
+}
+.prev-principio:hover, .next-principio:hover {
+    top: 48%;
+    filter: drop-shadow(0 0 20px rgba(0,0,0,1));
+}
+
+@media not all and screen(sm) {
+    .principios {
+        @apply p-2;
+    }
+    .btn-principios {
+        position: relative;
+    }
+}
+nav a {
+    @apply bg-black p-1;
+}
