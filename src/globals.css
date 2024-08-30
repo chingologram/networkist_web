@@ -2,10 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+
 :root {
   --foreground-rgb: 255, 255, 255;
   --background-start-rgb: 0, 0, 100;
   --background-end-rgb: 100, 100, 200;
+  font-family: 'Roboto Slab';
 }
 
 @media (prefers-color-scheme: dark) {
@@ -44,11 +46,12 @@ html {
     counter-increment: overlay-count;
     opacity: .5;
     filter: blur(20px);
-    mix-blend-mode: lighten;
+    mix-blend-mode: hard-light;
     @apply fixed p-0 top-0 right-0 left-0 bottom-0;
     border-radius: 100%;
     transition: all 2s;
-    animation: 15s overlay-animation infinite;
+    animation: 10s overlay-animation infinite;
+    animation-timing-function: ease-in-out;
 }
 .bg-overlay {
     translate: -20% 0;
@@ -80,15 +83,17 @@ html {
         filter: blur(20px);
     }
     25% {
-        
-        rotate: -45deg;
+        rotate: 45deg;
+    }
+    50% {
+        skew: 100deg;
     }
     75% {
-        
-        rotate: 45deg;
+        rotate: 135deg;
         filter: blur(50px);
     }
     100% {
+        skew: 0deg;
         rotate: 0deg;
     }
 }
@@ -144,5 +149,15 @@ h1, h2 {
     }
 }
 nav a {
-    @apply bg-black p-1;
+    @apply p-4 rounded-xl;
+    background: rgba(255,255,255,.1);
+    transition: background 200ms;
+}
+
+nav a:hover {
+    background: rgba(255,255,255,.25);
+}
+
+nav .burger-menu {
+    @apply absolute top-0 right-0 w-10 m-8;
 }

@@ -1,4 +1,4 @@
-import { RootLayout } from './layout.js';
+import RootLayout from './layout.js';
 import {MDXProvider} from '@mdx-js/react'
 
 export function useMDXComponents(components) {

@@ -1,5 +1,5 @@
 import '../globals.css';
-import { RootLayout } from '../layout.js'
+import RootLayout from '../layout.js'
 import  Link  from 'next/link';
 import { redirect } from 'next/navigation'
 import { useSwipeable } from 'react-swipeable';
@@ -23,7 +23,7 @@ export default function MyApp({ Component, pageProps, router }) {
         return (
             <RootLayout>
                 <h1>Principios networkistas</h1>
-                <div {...handlers} class="principios">
+                <div {...handlers} class="principios transition-opacity">
                     <h2>{idx}</h2>
                     <Component {...pageProps} />
                     <div className="btn-principios">
