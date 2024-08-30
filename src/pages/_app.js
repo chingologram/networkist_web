@@ -23,7 +23,7 @@ export default function MyApp({ Component, pageProps, router }) {
         return (
             <RootLayout>
                 <h1>Principios networkistas</h1>
-                <div {...handlers} class="principios transition-opacity">
+                <div {...handlers} class="principios">
                     <h2>{idx}</h2>
                     <Component {...pageProps} />
                     <div className="btn-principios">

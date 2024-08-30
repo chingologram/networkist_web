@@ -63,7 +63,7 @@ class RootLayout extends Component {
         <Link className="hover:underline" href="/quienes-somos">¿Quiénes somos?</Link>
         </nav>
         </div>
-        <Transition in={!this.state.menuOpen} timeout={100}>
+        <Transition in={!this.state.menuOpen} appear={true} timeout={100}>
             {state => (
                     <section style={{
                       ...transitionStyles[state]
