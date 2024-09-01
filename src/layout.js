@@ -1,5 +1,6 @@
 import Link from 'next/link'; 
 import { BurgerMenu } from '../src/components/burger-menu';
+import { Stars } from '../src/components/stars';
 import  classnames  from 'classnames';
 import { Component } from 'react';
 import { useState } from 'react';
@@ -7,6 +8,7 @@ import { withRouter } from 'next/router';
 import { Transition } from 'react-transition-group';
 import React from 'react';
 import { Roboto_Slab } from 'next/font/google'
+import { NextReactP5Wrapper } from '@p5-wrapper/next';
 
 const font = Roboto_Slab({
     weight: ['400', '700'],
@@ -42,8 +44,13 @@ class RootLayout extends Component {
   }
   render() {
     let ref = React.createRef();
+    let stars = Stars;
+      console.log(stars);
     return (
         <main className={`flex min-h-screen flex-col items-center justify-start p-4 ${font.className}`}>
+        <div class="stars-canvas">
+            <NextReactP5Wrapper sketch={stars} />
+        </div>
         <div id="overlay-1" className="bg-overlay"></div>
         <div id="overlay-2" className="bg-overlay"></div>
         <div id="overlay-3" className="bg-overlay"></div>

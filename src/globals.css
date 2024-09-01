@@ -5,7 +5,7 @@
 
 :root {
   --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 0, 0, 100;
+  --background-start-rgb: 20, 20, 100;
   --background-end-rgb: 100, 100, 200;
   font-family: 'Roboto Slab';
 }
@@ -45,12 +45,12 @@ html {
 .bg-overlay {
     counter-increment: overlay-count;
     opacity: .5;
-    filter: blur(20px);
+    filter: blur(50px);
     mix-blend-mode: hard-light;
     @apply fixed p-0 top-0 right-0 left-0 bottom-0;
     border-radius: 100%;
     transition: all 2s;
-    animation: 10s overlay-animation infinite;
+    animation: 15s overlay-animation infinite;
     animation-timing-function: ease-in-out;
 }
 .bg-overlay {
@@ -58,18 +58,22 @@ html {
     background: radial-gradient(pink 0%, transparent 50%);
 }
 #overlay-2 {
+    --factor: 1.2;
     translate: 20% 0;
     background: radial-gradient(turquoise 0%, transparent 50%);
 }
 #overlay-3 {
+    --factor: 1.1;
     translate: 0 20%;
     background: radial-gradient(blue 0%, transparent 50%);
 }
 #overlay-4 {
+    --factor: .75;
     translate: 0 20%;
     background: radial-gradient(violet 0%, transparent 50%);
 }
 #overlay-5 {
+    --factor: -1;
     translate: -30% 0%;
     background: radial-gradient(darkpink 0%, transparent 50%);
 }
@@ -80,21 +84,23 @@ html {
 @keyframes overlay-animation {
     0% {
         rotate: 0deg;
-        filter: blur(20px);
+        filter: blur(50px);
+        scaleX: 1;
     }
     25% {
-        rotate: 45deg;
+        rotate: calc(var(--factor) * 90deg);
     }
     50% {
-        skew: 100deg;
+        skew: 33deg;
+        scaleX: var(--factor);
     }
     75% {
-        rotate: 135deg;
         filter: blur(50px);
     }
     100% {
         skew: 0deg;
         rotate: 0deg;
+        scaleX: 1;
     }
 }
 .principios {
@@ -160,4 +166,12 @@ nav a:hover {
 
 nav .burger-menu {
     @apply absolute top-0 right-0 w-10 m-8;
+}
+.stars-canvas {
+    position: absolute;
+    top:0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    mix-blend-mode: soft-light;
 }
