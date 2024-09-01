@@ -9,7 +9,11 @@ export function Stars(p5) {
             this.lifespan = 600 * Math.random()
             this.left = this.lifespan;
             this.color = p5.color(255, 255, 255)
-            this.size = 5 * Math.random()
+            if (0 == p5.frameCount % 10) {
+                this.size = 5 * Math.random()
+            } else {
+                this.size = 3 * Math.random()
+            }
             console.log('nueva estrella');
         }
         draw() {
@@ -38,10 +42,8 @@ export function Stars(p5) {
     p5.draw = function () {
         p5.background('black');
         let starsNew = [];
-        if (0 == (p5.frameCount % 10)) {
-            let star = new Star;
-            stars.push(star);
-        }
+        let star = new Star;
+        stars.push(star);
         for (let i in stars) {
             if (stars[i].left >= 0) {
                 stars[i].draw()
