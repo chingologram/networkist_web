@@ -7,10 +7,10 @@ import { useState } from 'react';
 import { withRouter } from 'next/router';
 import { Transition } from 'react-transition-group';
 import React from 'react';
-import { Roboto_Slab } from 'next/font/google'
+import { Space_Grotesk } from 'next/font/google'
 import { NextReactP5Wrapper } from '@p5-wrapper/next';
 
-const font = Roboto_Slab({
+const font = Space_Grotesk({
     weight: ['400', '700'],
     style: ['normal'],
     subsets: ['latin'],
@@ -61,7 +61,7 @@ class RootLayout extends Component {
         <Link className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0 hover:underline"
         href="/"
         rel="noopener noreferrer" >
-        <span className="font-bold">Networkismo</span>
+        <span className="text-md font-bold">Networkismo</span>
         </Link>
         <BurgerMenu menuOpen={this.state.menuOpen} toggleMenuOpen={this.toggleMenuOpen.bind(this)} />
         <nav className="hidden md:flex flex-row gap-8 w-full justify-end">
